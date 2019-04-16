@@ -5,10 +5,10 @@ import { array, bool, func, shape, string } from 'prop-types';
 // import Mask from 'src/components/Mask';
 // import MiniCart from 'src/components/MiniCart';
 // import Navigation from 'src/components/Navigation';
-// import OnlineIndicator from 'src/components/OnlineIndicator';
-// import ErrorNotifications from './errorNotifications';
-// import renderRoutes from './renderRoutes';
-// import errorRecord from 'src/util/createErrorRecord';
+import OnlineIndicator from 'src/components/OnlineIndicator';
+import ErrorNotifications from './errorNotifications';
+import renderRoutes from './renderRoutes';
+import errorRecord from 'src/util/createErrorRecord';
 
 import Test from 'src/components/Test'
 
@@ -30,7 +30,7 @@ class App extends Component {
             renderError: null
         };
     }
-
+/*eslint getter-return: "off"*/
     get errorFallback() {
         const { renderError } = this.state;
         if (renderError) {
@@ -39,8 +39,6 @@ class App extends Component {
             ];
             return (
                 <Fragment>
-                    <Main isMasked={true} />
-                    <Mask isActive={true} />
                     <ErrorNotifications
                         errors={errors}
                         onDismissError={this.recoverFromRenderError}
@@ -91,10 +89,13 @@ class App extends Component {
         const cartIsOpen = drawer === 'cart';
 
         return (
-            <div>
+            <Fragment>
             <Test/>
-              hola
-            </div>
+              <ErrorNotifications
+      errors={unhandledErrors}
+      onDismissError={markErrorHandled}
+  />
+            </Fragment>
         );
     }
 }

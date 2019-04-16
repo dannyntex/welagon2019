@@ -73,7 +73,7 @@ module.exports = async function(env) {
                 {
                     include: [themePaths.src, /peregrine\/src\//],
 
-                    test: /\.(mjs|js)$/,
+                    test: /\.(mjs|js|jsx)$/,
                     use: [
                         {
                             loader: 'babel-loader',
@@ -82,7 +82,7 @@ module.exports = async function(env) {
                                 envName: mode,
                                 rootMode: 'upward'
                             }
-                        }
+                        },
                     ]
                 },
                 {

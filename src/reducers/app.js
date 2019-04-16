@@ -3,7 +3,8 @@ import { handleActions } from 'redux-actions';
 import actions from 'src/actions/app';
 
 export const name = 'app';
-
+/*eslint no-undef: "error"*/
+/*eslint-env browser*/
 const initialState = {
     drawer: null,
     hasBeenOffline: !navigator.onLine,
@@ -22,7 +23,7 @@ const reducerMap = {
             overlay: !!payload
         };
     },
-    [actions.toggleSearch]: state => {
+    [actions.toggleSearch]: (state) => {
         return {
             ...state,
             searchOpen: !state.searchOpen
@@ -35,13 +36,13 @@ const reducerMap = {
             autocompleteOpen: false
         };
     },
-    [actions.setOnline]: state => {
+    [actions.setOnline]: (state) => {
         return {
             ...state,
             isOnline: true
         };
     },
-    [actions.setOffline]: state => {
+    [actions.setOffline]: (state) => {
         return {
             ...state,
             isOnline: false,

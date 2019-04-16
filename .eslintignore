@@ -1,0 +1,15 @@
+**/__stories__/*
+**/__tests__/*
+**/Notifications/*
+/src/index.js
+/src/util/*
+/src/middleware/*
+/src/drivers/*
+/src/components/OnlineIndicator/*
+/src/components/LoadingIndicator/*
+/src/components/Icon/*
+/src/components/ErrorView/*
+/src/components/App/renderRoutes.js
+/src/components/App/errorNotifications.js
+/src/classify.js
+/src/components/Test/*

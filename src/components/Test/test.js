@@ -3,24 +3,7 @@ import { Query } from 'src/drivers';
 import categoryListQuery from '../../queries/getCategoryList.graphql';
 
 class Test extends Component {
-  get imagePath() {
 
-      const { image, productImagePreview } = this.props.item;
-      const previewProduct = productImagePreview.items[0];
-      if (image) {
-          return resourceUrl(image, {
-              type: 'image-category',
-              width: previewImageSize
-          });
-      } else if (previewProduct) {
-          return resourceUrl(previewProduct.small_image, {
-              type: 'image-product',
-              width: previewImageSize
-          });
-      } else {
-          return null;
-      }
-  }
 
   render(){
       //     const { imagePath, props } = this;
