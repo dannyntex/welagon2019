@@ -10,7 +10,6 @@
     "clean": "rimraf dist esm",
     "watch": "webpack-dev-server --progress --color --env.mode development",
     "lint": "eslint -c .eslintrc.js --ignore-path .eslintignore './src'"
-
   },
   "dependencies": {
     "@babel/runtime": "~7.3.4",
@@ -71,6 +70,7 @@
     "eslint-plugin-react": "^7.12.4",
     "identity-obj-proxy": "~3.0.0",
     "node-fetch": "~2.3.0",
+    "postcss-preset-env": "^6.6.0",
     "react-test-renderer": "~16.8.3",
     "rimraf": "~2.6.3",
     "terser-webpack-plugin": "~1.2.3",

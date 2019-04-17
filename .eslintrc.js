@@ -35,6 +35,7 @@ module.exports = {
       // "no-console":"off",
       // "react/prop-types":"off",
       // "react/jsx-no-comment-textnodes":"off",
+      "spaced-comment": ["error", "always", { "exceptions": ["/*", "//"] }],
       "react/jsx-pascal-case":1,
       "import/no-unresolved":0,
       "indent":0,

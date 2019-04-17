@@ -3,8 +3,8 @@ import { handleActions } from 'redux-actions';
 import actions from 'src/actions/app';
 
 export const name = 'app';
-/*eslint no-undef: "error"*/
-/*eslint-env browser*/
+/* eslint no-undef: "error"*/
+/* eslint-env browser*/
 const initialState = {
     drawer: null,
     hasBeenOffline: !navigator.onLine,

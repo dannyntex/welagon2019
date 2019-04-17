@@ -94,8 +94,7 @@ module.exports = async function(env) {
                             options: {
                                 importLoaders: 1,
                                 localIdentName:
-                                  //  '[name]-
-                                  '[local]',//-[hash:base64:3]',
+                                  '[name]-[local]-[hash:base64:3]',
                                 modules: true
                             }
                         }

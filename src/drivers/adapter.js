@@ -20,7 +20,7 @@ import { Router } from '@magento/peregrine';
  * so its components don't depend on context and IO.
  */
 
-export default class MagentoAdapter extends Component {
+export default class Welagon extends Component {
     static propTypes = {
         apollo: shape({
             client: shape({
@@ -60,8 +60,8 @@ export default class MagentoAdapter extends Component {
     }
     static apolloClient({ apiBase, apollo: { cache, link } = {} }) {
         return new ApolloClient({
-            link: link || MagentoAdapter.apolloLink(apiBase),
-            cache: cache || MagentoAdapter.apolloCache()
+            link: link || Welagon.apolloLink(apiBase),
+            cache: cache || Welagon.apolloCache()
         });
     }
 
@@ -69,7 +69,7 @@ export default class MagentoAdapter extends Component {
         super(props);
         const apollo = this.props.apollo || {};
         this.apolloClient =
-            apollo.client || MagentoAdapter.apolloClient(this.props);
+            apollo.client || Welagon.apolloClient(this.props);
     }
     render() {
         const { children, store, apiBase } = this.props;
