@@ -1,8 +1,8 @@
 import { configure } from '@storybook/react';
-
+const req = require.context('../src', true, /__stories__\/.+\.js$/);
 function loadStories() {
-    const context = require.context('../src', true, /__stories__\/.+\.js$/);
-    context.keys().forEach(context);
+
+      req.keys().forEach(req);
 }
 
 configure(loadStories, module);

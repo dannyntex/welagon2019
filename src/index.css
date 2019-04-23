@@ -1,6 +1,7 @@
 :root {
-  --welagon-text: 33, 33, 33;
-  --welagon-header-footer:52, 75, 89, 1;
+  --welagon-text-white: #fcfcfc;
+  --welagon-header-footer:#344b59;
+  --welagon-text: #5f5f5f;
 }
 html {
     background-color: white;
@@ -11,8 +12,8 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 body {
-    background-color: white;
-    color: rgb(var(--welagon-text));
+    background-color: var(--welagon-text-white);
+    color: var(--welagon-text);
     margin: 0;
     padding: 0;
 }
