@@ -3,17 +3,22 @@
   background-color: var(--welagon-header-footer);
   z-index: 10;
   min-height: 3.8rem;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-areas:"iconMenu logo .";
+  grid-template-columns: 50px  auto  50px;
+  place-items:center;
+  min-width: 375px
+
+
 }
-a{
-margin-left : 10px;
-color:var(--welagon-text-white);
-text-decoration: none;
-font-size: 25px;
+.iconMenu{
+  grid-area: iconMenu;
+  margin-left : 10px;
+  color:var(--welagon-text-white);
+  text-decoration: none;
+  font-size: 25px;
+  align-items: start;
 }
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.logo{
+  grid-area: logo;
 }

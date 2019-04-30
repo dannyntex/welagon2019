@@ -16,9 +16,9 @@ class Header extends Component {
     const { classes } = this.props;
     return (
       <header className={classes.root}>
-        <a href="#">&#9776;</a>
+        <a className={classes.iconMenu} href="#">&#9776;</a>
         <img
-
+          className={classes.logo}
           src={logo}
           width={this.props.size}
           alt="welagon"

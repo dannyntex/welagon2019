@@ -10,12 +10,12 @@ class Banner extends Component {
   }
   render(){
     return (
-      <div>
+      <section>
         <img
             src={BannerImg}
             width={this.props.size}
           />
-      </div>
+      </section>
     )
   }
 }

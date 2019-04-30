@@ -1,15 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Header from '../header';
-import defaultClasses from '../header.css';
+import CatHomepage from '../CatHomepage';
+import defaultClasses from '../cathomepage.css';
 import 'src/index.css';
 import { Adapter } from 'src/drivers';
 import store from 'src/store';
 
-const stories = storiesOf('Header', module);
+const stories = storiesOf('CatHomepage', module);
 const apiBase = new URL('/graphql', location.origin).toString();
-const noop = () => {};
 function MockPage({ children }) {
     const styles = {
         container: {
@@ -27,14 +26,15 @@ function MockPage({ children }) {
         </div>
     );
 }
-stories.add('Barra Menu', () => (
+
+stories.add('categorias', () => (
     <Adapter
         apiBase={apiBase}
         apollo={{ link: Adapter.apolloLink(apiBase) }}
         store={store}
     >
     <MockPage>
-        <Header
+        <CatHomepage
             classes={defaultClasses}
 
         />
