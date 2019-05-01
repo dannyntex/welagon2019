@@ -1,9 +1,10 @@
 import React, {Component
 } from 'react';
-import Header from './../Header'
-import Banner from'./../Banner'
-import CatHomepage from './../CatHomepage'
-import FeaturedProducts from './../FeaturedProducts'
+import Header from './../Header';
+import Banner from'./../Banner';
+import CatHomepage from './../CatHomepage';
+import FeaturedProducts from './../FeaturedProducts';
+import Brands from './../Brands';
 
 class Main extends Component {
   render() {
@@ -13,6 +14,7 @@ class Main extends Component {
         <Banner/>
         <CatHomepage/>
         <FeaturedProducts/>
+        <Brands/>
       </main>
     )
   }

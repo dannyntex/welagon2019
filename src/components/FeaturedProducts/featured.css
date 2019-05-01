@@ -1,4 +1,8 @@
+.container {
+  margin-bottom: var(--welagon-bottom-margin-section);
+}
 .boxesFeatured {
+
   display: flex;
   flex-direction:row;
 }

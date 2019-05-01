@@ -1,0 +1,16 @@
+.container {
+  margin-bottom: var(--welagon-bottom-margin-section)
+}
+.container h6{
+  text-align: center;
+}
+.boxLogos {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items:center;
+}
+.brandLogo {
+  width: 5em;
+margin: 9px 15px;
+}

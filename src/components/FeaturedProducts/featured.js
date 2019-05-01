@@ -11,7 +11,7 @@ class featured extends Component{
   render(){
     const {classes} = this.props;
     return(
-      <div>
+      <div className={classes.container}>
       <section>
         <h4>Destacados</h4>
         <div className={classes.boxesFeatured}>
