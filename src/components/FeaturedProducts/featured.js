@@ -23,7 +23,7 @@ class featured extends Component{
             <p className={classes.info} >i5 3º Generación</p>
           </div>
           <div className={classes.box}>
-            <p className={classes.price} >150€</p>
+            <p className={classes.price} >249€</p>
             <div>
               <img className={classes.imagen} src={portatilhp} alt="ordenadores"/>
             </div>
@@ -36,14 +36,14 @@ class featured extends Component{
         <h4>Destacados Monitores</h4>
         <div className={classes.boxesFeatured}>
           <div className={classes.box}>
-            <p className={classes.price} >150€</p>
+            <p className={classes.price} >59€</p>
             <div>
               <img className={classes.imagen} src={monitor} alt="ordenadores"/>
             </div>
             <p className={classes.info} >19,5"</p>
           </div>
           <div className={classes.box}>
-            <p className={classes.price} >150€</p>
+            <p className={classes.price} >49€</p>
             <div>
               <img className={classes.imagen} src={monitor} alt="ordenadores"/>
             </div>
@@ -56,14 +56,14 @@ class featured extends Component{
         <h4>Destacados PC'S</h4>
         <div className={classes.boxesFeatured}>
           <div className={classes.box}>
-            <p className={classes.price} >150€</p>
+            <p className={classes.price} >69€</p>
             <div>
               <img className={classes.imagen} src={pc} alt="ordenadores"/>
             </div>
             <p className={classes.info} >i5 3º Generación</p>
           </div>
           <div className={classes.box}>
-            <p className={classes.price} >150€</p>
+            <p className={classes.price} >199€</p>
             <div>
               <img className={classes.imagen} src={pc} alt="ordenadores"/>
             </div>

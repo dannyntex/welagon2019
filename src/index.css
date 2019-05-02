@@ -17,10 +17,10 @@ html {
 }
 body {
   font-family: 'Roboto';
-	font-size: 13px;
+	font-size: 16px;
 	color: #212121;
 	background-color: #fafafa;
-	line-height: 1.846;
+	line-height: 1.6;
 }
 body,
 input,
@@ -36,7 +36,7 @@ h4,
 h5,
 h6 {
     font-weight: 400;
-    margin: .5rem;
+    margin: 20px 0;
     font-family: inherit;
     font-weight: 500;
     line-height: 1.2;
@@ -100,4 +100,10 @@ button {
 button:disabled {
     cursor: default;
     touch-action: none;
+}
+footer {
+  font-size: 12px;
+  line-height: 1.33341;
+  font-weight: 400;
+  letter-spacing: -.01em;
 }

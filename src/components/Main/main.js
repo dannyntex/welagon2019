@@ -5,6 +5,7 @@ import Banner from'./../Banner';
 import CatHomepage from './../CatHomepage';
 import FeaturedProducts from './../FeaturedProducts';
 import Brands from './../Brands';
+import Footer from './../Footer'
 
 class Main extends Component {
   render() {
@@ -15,6 +16,7 @@ class Main extends Component {
         <CatHomepage/>
         <FeaturedProducts/>
         <Brands/>
+        <Footer/>
       </main>
     )
   }

@@ -1,0 +1,27 @@
+.container {
+  min-height: 200px;
+  background-color: var(--welagon-header-footer);
+  color:var(--welagon-text-white);
+  padding: 30px 20px 0 20px
+}
+.logo {
+  width: 9em;
+
+}
+.info {
+padding-bottom: 30px;
+}
+.info p {
+
+  font-size: 14px;
+
+}
+.navFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+
+}
+.navFooter nav {
+  min-width: 140px
+}
