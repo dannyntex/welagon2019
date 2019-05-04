@@ -13,10 +13,16 @@ class Header extends Component {
     size : 120
   }
   render(){
-    const { classes } = this.props;
+    const { classes,openNav } = this.props;
     return (
       <header className={classes.root}>
-        <a className={classes.iconMenu} href="#">&#9776;</a>
+        <a
+        className={classes.iconMenu}
+        href="#"
+        onClick={openNav}
+        >
+        &#9776;
+        </a>
         <img
           className={classes.logo}
           src={logo}

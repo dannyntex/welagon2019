@@ -1,0 +1,25 @@
+.sidenav {
+  width: 320px;
+  background: #ccc;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: fixed;
+  overflow-x: hidden;
+  transform: translateX(-320px);
+  animation: pulse 5s ;
+}
+@keyframes pulse {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
