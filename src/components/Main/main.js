@@ -13,12 +13,13 @@ class Main extends Component {
     return (
       <main>
         <Header/>
-        <Navigation/>
+
         <Banner/>
         <CatHomepage/>
         <FeaturedProducts/>
         <Brands/>
         <Footer/>
+        <Navigation/>
       </main>
     )
   }

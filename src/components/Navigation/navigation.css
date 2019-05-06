@@ -1,4 +1,4 @@
-.sidenav {
+.sideNav {
   width: 320px;
   background: #ccc;
   height: 100%;
@@ -8,14 +8,21 @@
   position: fixed;
   overflow-x: hidden;
   transform: translateX(-320px);
-  animation: pulse 5s ;
+  transition-duration: 224ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
 }
-@keyframes pulse {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+.openSideNav {
+  composes: sideNav;
+  box-shadow: 1px 0 rgb(var(--venia-border));
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-duration: 224ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  visibility: visible;
 }
 
-.sidenav a {
+.sideNav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;

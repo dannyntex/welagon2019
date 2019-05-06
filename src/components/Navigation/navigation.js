@@ -1,16 +1,30 @@
 import React,{Component} from 'react';
-
+import PropTypes from 'prop-types';
 
 import Classify from 'src/classify'
 import defaultClasses from './navigation.css'
 
 
 class Navigation extends Component {
+  static propTypes ={
+    classes: PropTypes.shape({
+      openSideNav: PropTypes.string,
+      sideNav:PropTypes.string,
+    }),
+    closeNav: PropTypes.func.isRequired
+
+  }
+
   render(){
-  const {classes} = this.props;
+    const {classes,drawer,closeNav} = this.props;
+    const isOpenNav = drawer ? classes.openSideNav : classes.sideNav
+    console.log(isOpenNav)
     return (
-      <div  className={classes.sidenav}>
-        <a className="closebtn" >&times;</a>
+      <div  className={isOpenNav}>
+        <a
+        className="closebtn"
+        onClick={closeNav}
+        >&times;</a>
         <a href="#">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
