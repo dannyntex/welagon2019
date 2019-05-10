@@ -10,14 +10,11 @@ import Navigation from 'src/components/Navigation';
 
 class Main extends Component {
   render() {
+    const {children} = this.props;
     return (
       <main>
         <Header/>
-
-        <Banner/>
-        <CatHomepage/>
-        <FeaturedProducts/>
-        <Brands/>
+        <div >{children}</div>
         <Footer/>
         <Navigation/>
       </main>

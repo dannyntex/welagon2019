@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import app from './app';
 import header from './header'
-// import catalog from './catalog';
+import catalog from './catalog';
 // import checkout from './checkout';
 // import directory from './directory';
 // import user from './user';
@@ -13,7 +13,7 @@ import header from './header'
 export default combineReducers({
     app,
     header,
-    // catalog,
+    catalog,
     // checkout,
     // checkoutReceipt,
     // directory,
