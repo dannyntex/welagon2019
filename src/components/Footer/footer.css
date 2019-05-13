@@ -1,5 +1,5 @@
 .container {
-  min-height: 200px;
+  min-height: 320px;
   background-color: var(--welagon-header-footer);
   color:var(--welagon-text-white);
   padding: 30px 20px 0 20px

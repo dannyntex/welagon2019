@@ -6,7 +6,7 @@ import defaultClasses from './navigation.css'
 
 
 class Navigation extends Component {
-  static propTypes ={
+  static propTypes = {
     classes: PropTypes.shape({
       openSideNav: PropTypes.string,
       sideNav:PropTypes.string,
@@ -18,7 +18,7 @@ class Navigation extends Component {
   render(){
     const {classes,drawer,closeNav} = this.props;
     const isOpenNav = drawer ? classes.openSideNav : classes.sideNav
-    console.log(isOpenNav)
+
     return (
       <div  className={isOpenNav}>
         <a

@@ -6,23 +6,23 @@ import defaultClasses from './header.css';
 import logo from './logo.png';
 
 class Header extends Component {
-  static propTypes ={
-    root:PropTypes.string
-  }
+  static propTypes = {
+    classes: PropTypes.shape({
+      top:PropTypes.string,
+      logo:PropTypes.string,
+      size:PropTypes.string,
+    })
+  };
+
   static defaultProps = {
     size : 120
   }
+
+
   render(){
-    const { classes,openNav } = this.props;
+    const { classes} = this.props;
     return (
-      <header className={classes.root}>
-        <a
-        className={classes.iconMenu}
-        href="#"
-        onClick={openNav}
-        >
-        &#9776;
-        </a>
+      <header className={classes.top}>
         <img
           className={classes.logo}
           src={logo}

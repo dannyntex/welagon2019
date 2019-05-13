@@ -1,17 +1,16 @@
-.root {
+.top {
   width: auto;
-  background-color: var(--welagon-header-footer);
+  background-color: var(--welagon-text-white);
   z-index: 10;
   min-height: 3.8rem;
   display: grid;
   grid-template-areas:"iconMenu logo .";
-  grid-template-columns: 50px  auto  50px;
+  grid-template-columns: 1fr  2fr 1fr;
   place-items:center;
-  min-width: 375px
-
+  min-width: 320px;
 
 }
-.iconMenu{
+.top .iconMenu{
   grid-area: iconMenu;
   margin-left : 10px;
   color:var(--welagon-text-white);

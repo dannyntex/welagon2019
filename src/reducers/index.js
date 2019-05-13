@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
 import app from './app';
-import header from './header'
 import catalog from './catalog';
 // import checkout from './checkout';
 // import directory from './directory';
@@ -12,7 +11,6 @@ import catalog from './catalog';
 
 export default combineReducers({
     app,
-    header,
     catalog,
     // checkout,
     // checkoutReceipt,

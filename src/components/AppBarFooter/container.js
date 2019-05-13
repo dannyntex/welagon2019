@@ -1,19 +1,16 @@
 import {connect} from 'src/drivers'
-import Navigation from './navigation'
-
+import AppBarFooter from './appbarfooter'
 import { toggleDrawer } from 'src/actions/app';
 
-const mapStateToProps = ({app}) => (app)
 
+const mapStateToProps = ({app}) => (app)
 const mapDispatchToProps = dispatch => (
   {
-    closeNav: () => (
-      dispatch(toggleDrawer(null))
-    )
+    ToggleNav:(nav)=>(dispatch(toggleDrawer(nav)))
   }
 )
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Navigation)
+  mapDispatchToProps,
+)(AppBarFooter);

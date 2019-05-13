@@ -6,14 +6,15 @@ import defaultClasses from './Banner.css';
 class Banner extends Component {
 
   static defaultProps = {
-    size : 375
+    size : "auto"
   }
   render(){
+    const {classes} = this.props;
     return (
       <section>
         <img
             src={BannerImg}
-            width={this.props.size}
+            className={classes.banner}
           />
       </section>
     )
