@@ -6,11 +6,11 @@ import {
 import Main from 'src/components/Main';
 // import Mask from 'src/components/Mask';
 // import MiniCart from 'src/components/MiniCart';
-// import Navigation from 'src/components/Navigation';
 import OnlineIndicator from 'src/components/OnlineIndicator';
 import errorRecord from 'src/util/createErrorRecord';
 import ErrorNotifications from './errorNotifications';
 import renderRoutes from './renderRoutes';
+
 
 class App extends Component {
   static propTypes = {
@@ -85,7 +85,6 @@ class App extends Component {
     } = this.props;
     const { onlineIndicator } = this;
     const { drawer, overlay } = app;
-    const navIsOpen = drawer === 'nav';
     const cartIsOpen = drawer === 'cart';
 
     return (

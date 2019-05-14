@@ -1,11 +1,9 @@
 import React, {Component
 } from 'react';
-import ReactResizeDetector from 'react-resize-detector';
 
 import Header from './../Header';
-import AppBarFooter from './../AppBarFooter'
 import Footer from './../Footer'
-import Navigation from 'src/components/Navigation';
+import GetSizePage from './../GetSizePage'
 
 class Main extends Component {
   render() {
@@ -13,12 +11,12 @@ class Main extends Component {
     return (
       <main>
         <Header/>
-        <div >{children}</div>
-        <AppBarFooter/>
+        <div>{children}</div>
         <Footer/>
-        <Navigation/>
+        <GetSizePage/>
       </main>
     )
   }
 }
+
 export default Main;
