@@ -1,6 +1,6 @@
 .sideNav {
   width: 320px;
-  background: #ccc;
+  background: var(--welagon-text-white);
   height: 100%;
   z-index: 1;
   top: 0;

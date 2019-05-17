@@ -11,20 +11,16 @@ class Navigation extends Component {
       openSideNav: PropTypes.string,
       sideNav:PropTypes.string,
     }),
-    closeNav: PropTypes.func.isRequired
+    drawer:PropTypes.string,
 
   }
 
   render(){
-    const {classes,drawer,closeNav} = this.props;
+    const {classes,drawer} = this.props;
     const isOpenNav = drawer ? classes.openSideNav : classes.sideNav
 
     return (
       <div  className={isOpenNav}>
-        <a
-        className="closebtn"
-        onClick={closeNav}
-        >&times;</a>
         <a href="#">About</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>

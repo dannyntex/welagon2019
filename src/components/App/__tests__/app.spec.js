@@ -3,12 +3,12 @@ import TestRenderer from 'react-test-renderer';
 
 import OnlineIndicator from 'src/components/OnlineIndicator';
 import Main from 'src/components/Main';
-import Mask from 'src/components/Mask';
-import MiniCart from 'src/components/MiniCart';
+// import Mask from 'src/components/Mask';
+// import MiniCart from 'src/components/MiniCart';
 import ErrorNotifications from '../errorNotifications';
 
 jest.mock('src/components/Main', () => 'Main');
-jest.mock('src/components/MiniCart', () => 'MiniCart');
+// jest.mock('src/components/MiniCart', () => 'MiniCart');
 jest.mock('../errorNotifications', () => 'ErrorNotifications');
 
 Object.defineProperty(window.location, 'reload', {
@@ -64,7 +64,7 @@ test('renders a full page with onlineIndicator and routes', () => {
     const { root } = TestRenderer.create(<App {...appProps} />);
 
     getAndConfirmProps(root, Navigation, { isOpen: false });
-    getAndConfirmProps(root, MiniCart, { isOpen: false });
+    // getAndConfirmProps(root, MiniCart, { isOpen: false });
 
     const main = getAndConfirmProps(root, Main, {
         isMasked: false
@@ -75,10 +75,10 @@ test('renders a full page with onlineIndicator and routes', () => {
     // renderRoutes should just return a fake component here
     expect(main.findByType(Routes)).toBeTruthy();
 
-    const mask = getAndConfirmProps(root, Mask, {
-        isActive: false,
-        dismiss: appProps.closeDrawer
-    });
+    // const mask = getAndConfirmProps(root, Mask, {
+    //     isActive: false,
+    //     dismiss: appProps.closeDrawer
+    // });
 
     // appropriate positioning
     const {
@@ -118,9 +118,9 @@ test('renders error fallback UI if error is in state', () => {
     // No routes
     expect(() => main.findByType(Routes)).toThrow();
 
-    const mask = getAndConfirmProps(root, Mask, {
-        isActive: true
-    });
+    // const mask = getAndConfirmProps(root, Mask, {
+    //     isActive: true
+    // });
 
     const errorNotifications = getAndConfirmProps(root, ErrorNotifications, {
         errors: expect.arrayContaining([
@@ -208,5 +208,5 @@ test('displays open nav or drawer', () => {
         <App {...propsWithDrawer('cart')} />
     );
 
-    getAndConfirmProps(openCart, MiniCart, { isOpen: true });
+    // getAndConfirmProps(openCart, MiniCart, { isOpen: true });
 });
