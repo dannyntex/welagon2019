@@ -115,7 +115,6 @@ class GalleryItem extends Component {
         }
 
         const { small_image, name } = item;
-          console.log(resourceUrl(small_image))
         return (
             <img
                 className={classes.image}

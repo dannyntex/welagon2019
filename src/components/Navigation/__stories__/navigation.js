@@ -6,6 +6,7 @@ import defaultClasses from '../navigation.css';
 import 'src/index.css';
 import { Adapter } from 'src/drivers';
 import store from 'src/store';
+import RenderPageBySize from 'src/components/RenderPageBySize'
 
 const stories = storiesOf('Navigation', module);
 const apiBase = new URL('/graphql', location.origin).toString();
@@ -33,11 +34,11 @@ stories.add('NavMenu', () => (
         apollo={{ link: Adapter.apolloLink(apiBase) }}
         store={store}
     >
+      <RenderPageBySize>
     <MockPage>
-        <Navigation
-            classes={defaultClasses}
-
+        <Navigation classes={defaultClasses}
         />
     </MockPage>
+          </RenderPageBySize>
     </Adapter>
 ));

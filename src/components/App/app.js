@@ -4,7 +4,7 @@ import {
 } from 'prop-types';
 
 import Main from 'src/components/Main';
-// import Mask from 'src/components/Mask';
+import Mask from 'src/components/Mask';
 // import MiniCart from 'src/components/MiniCart';
 import OnlineIndicator from 'src/components/OnlineIndicator';
 import errorRecord from 'src/util/createErrorRecord';
@@ -93,6 +93,7 @@ class App extends Component {
             {onlineIndicator}
             {renderRoutes()}
         </Main>
+        <Mask isActive={false} />
         <ErrorNotifications
           errors={unhandledErrors}
           onDismissError={markErrorHandled}

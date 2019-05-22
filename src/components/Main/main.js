@@ -3,7 +3,9 @@ import React, {Component
 
 import Header from './../Header';
 import Footer from './../Footer'
-import GetSizePage from './../GetSizePage'
+import Navigation from 'src/components/Navigation';
+import AppBarFooter from './../AppBarFooter'
+import RenderPageBySize from './../RenderPageBySize'
 
 class Main extends Component {
   render() {
@@ -13,7 +15,10 @@ class Main extends Component {
         <Header/>
         <div>{children}</div>
         <Footer/>
-        <GetSizePage/>
+        <RenderPageBySize>
+          <AppBarFooter/>
+          <Navigation/>
+        </RenderPageBySize>
       </main>
     )
   }
