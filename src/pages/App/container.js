@@ -1,6 +1,6 @@
 import { connect } from 'src/drivers';
 
-import appActions, { closeDrawer } from 'src/actions/app';
+import appActions from 'src/actions/app';
 import App from './app';
 
 const mapStateToProps = ({ app, unhandledErrors }) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = ({ app, unhandledErrors }) => ({
     unhandledErrors
 });
 const { markErrorHandled } = appActions;
-const mapDispatchToProps = { closeDrawer, markErrorHandled };
+const mapDispatchToProps = {  markErrorHandled };
 
 export default connect(
     mapStateToProps,

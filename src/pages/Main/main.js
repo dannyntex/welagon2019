@@ -1,11 +1,8 @@
 import React, {Component
 } from 'react';
 
-import Header from './../Header';
-import Footer from './../Footer'
-import Navigation from 'src/components/Navigation';
-import AppBarFooter from './../AppBarFooter'
-import RenderPageBySize from './../RenderPageBySize'
+import {Header,Footer, AppBarFooter, Navigation ,RenderPageBySize  } from 'src/components';
+
 
 class Main extends Component {
   render() {

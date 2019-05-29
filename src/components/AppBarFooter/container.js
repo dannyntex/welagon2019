@@ -4,11 +4,7 @@ import { toggleDrawer } from 'src/actions/app';
 
 
 const mapStateToProps = ({app}) => (app)
-const mapDispatchToProps = dispatch => (
-  {
-    ToggleNav:(nav)=>(dispatch(toggleDrawer(nav)))
-  }
-)
+const mapDispatchToProps = { toggleDrawer}
 
 export default connect(
   mapStateToProps,

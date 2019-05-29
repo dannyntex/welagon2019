@@ -3,10 +3,11 @@ import {
   array, bool, func, shape, string
 } from 'prop-types';
 
-import Main from 'src/components/Main';
-import Mask from 'src/components/Mask';
-// import MiniCart from 'src/components/MiniCart';
-import OnlineIndicator from 'src/components/OnlineIndicator';
+import Main from '../Main';
+
+import { Mask,OnlineIndicator }from 'src/components';
+
+
 import errorRecord from 'src/util/createErrorRecord';
 import ErrorNotifications from './errorNotifications';
 import renderRoutes from './renderRoutes';
@@ -15,12 +16,12 @@ import renderRoutes from './renderRoutes';
 class App extends Component {
   static propTypes = {
     app: shape({
-      drawer: string,
+      drawer:bool,
       hasBeenOffline: bool,
       isOnline: bool,
       overlay: bool.isRequired
     }).isRequired,
-    closeDrawer: func.isRequired,
+
     markErrorHandled: func.isRequired,
     unhandledErrors: array
   };
@@ -79,7 +80,6 @@ class App extends Component {
     }
     const {
       app,
-      closeDrawer,
       markErrorHandled,
       unhandledErrors
     } = this.props;

@@ -6,7 +6,7 @@ import { Util } from '@magento/peregrine';
 import { Adapter } from 'src/drivers';
 import store from 'src/store';
 import app from 'src/actions/app';
-import App from 'src/components/App';
+import App from 'src/pages/App';
 import './index.css';
 
 const { BrowserPersistence } = Util;

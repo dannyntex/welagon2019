@@ -6,7 +6,7 @@ export const name = 'app';
 /* eslint no-undef: "error"*/
 /* eslint-env browser*/
 const initialState = {
-    drawer: null,
+    drawer: false,
     hasBeenOffline: !navigator.onLine,
     isOnline: navigator.onLine,
     overlay: false,

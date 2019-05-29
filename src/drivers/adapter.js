@@ -60,8 +60,9 @@ export default class Welagon extends Component {
     }
     static apolloClient({ apiBase, apollo: { cache, link } = {} }) {
         return new ApolloClient({
+            cache: cache || Welagon.apolloCache(),
             link: link || Welagon.apolloLink(apiBase),
-            cache: cache || Welagon.apolloCache()
+
         });
     }
 

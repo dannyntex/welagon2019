@@ -4,8 +4,8 @@ import defaultClasses from './appbarfooter.css'
 import { PropTypes } from 'prop-types';
 
 const AppBarFooter = (props) => {
-  const handleToggleMenu = () => { !props.drawer ? props.ToggleNav("nav") : props.ToggleNav(null)}
-  const   {classes,drawer} = props;
+  const {classes, drawer, toggleDrawer} = props;
+  const handleToggleMenu = () => { !drawer ? toggleDrawer(true) : toggleDrawer(false)}
   const isActive = !drawer ?  classes.hamburger : classes.close;
   return (
     <aside className={classes.root}>
@@ -22,7 +22,7 @@ const AppBarFooter = (props) => {
 }
 
 AppBarFooter.propTypes = {
-  drawer:PropTypes.string,
+  drawer:PropTypes.bool,
   classes:PropTypes.shape({
     hamburger:PropTypes.string,
     close:PropTypes.string,
