@@ -19,7 +19,6 @@ const reducerMap = {
     if (error) {
       return state;
     }
-  console.log("actions.setPrevCategory.add",payload,state)
     return {
       ...state,
       prevCategory: [...state.prevCategory,payload]
@@ -29,7 +28,6 @@ const reducerMap = {
     if (error) {
       return state;
     }
-     console.log("actions.setPrevCategory.remove",payload,state)
     return {
       ...state,
       prevCategory: [...state.prevCategory.slice(1,state.prevCategory.length),...state.prevCategory.slice(state.prevCategory.length,1)]

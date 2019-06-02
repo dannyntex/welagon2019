@@ -18,7 +18,7 @@ const NavQuery = (props) => {
                 id:  id
               },
               updateQuery:(prev,{fetchMoreResult})=>{
-                !isBack ?  props.addPrevCategory(prev.category.id,"add") : props.addPrevCategory();
+                !isBack ?  props.setPrevCategory(prev.category.id,"add") : props.setPrevCategory();
                 if (!fetchMoreResult) return prev;
                 props.getTitleCategory(fetchMoreResult.category.name);
                 return fetchMoreResult;
@@ -28,7 +28,7 @@ const NavQuery = (props) => {
           const {
             drawer,
             toggleDrawer,
-            addPrevCategory,
+            setPrevCategory,
             getTitleCategory,
             prevCategory,
             titleCategory
@@ -40,14 +40,14 @@ const NavQuery = (props) => {
                 <NavHeader
                   title={titleCategory}
                   listPrevCat={prevCategory}
-                  addPrevCategory={addPrevCategory}
+                  setPrevCategory={setPrevCategory}
                   fetch={fetch}
                   />
               </div>
               <ul >
                 <CategoryTree
                   getTitleCategory={getTitleCategory}
-                  addPrevCategory={addPrevCategory}
+                  setPrevCategory={setPrevCategory}
                   toggleDrawer={toggleDrawer}
                   drawer={drawer}
                   data={data}

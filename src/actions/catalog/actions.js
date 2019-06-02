@@ -25,9 +25,6 @@ const actionMap = {
 
     }
 };
-// const actionTypes = [
-//     'SET_PREV_CATEGORY',
-//     'SET_TITLE_CATEGORY',
-//   ]
+
 
 export default createActions(actionMap,{ prefix });

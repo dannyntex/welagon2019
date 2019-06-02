@@ -1,6 +1,6 @@
 import React from 'react';
 import NavQuery from './navQuery'
-import {shape, string , bool, func} from 'prop-types';
+import {shape, string , bool, func,array} from 'prop-types';
 
 import Classify from 'src/classify'
 import defaultClasses from './navigation.css'
@@ -12,7 +12,7 @@ const Navigation = (props) => {
       classes,
       drawer,
       toggleDrawer,
-      addPrevCategory,
+      setPrevCategory,
       getTitleCategory,
       prevCategory,
       titleCategory
@@ -25,7 +25,7 @@ const Navigation = (props) => {
           titleCategory={titleCategory}
           prevCategory={prevCategory}
           getTitleCategory={getTitleCategory}
-          addPrevCategory={addPrevCategory}
+          setPrevCategory={setPrevCategory}
           toggleDrawer={toggleDrawer}
           drawer={drawer}
           />
@@ -40,5 +40,9 @@ Navigation.propTypes = {
   }),
   drawer:bool,
   getTitleCategory:func.isRequired,
+  setPrevCategory:func.isRequired,
+  toggleDrawer:func.isRequired,
+  titleCategory:string,
+  prevCategory:array
 }
 export default Classify(defaultClasses)(Navigation);

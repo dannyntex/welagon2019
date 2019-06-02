@@ -1,7 +1,7 @@
 import {connect} from 'src/drivers'
 import Navigation from './navigation'
 import { toggleDrawer } from 'src/actions/app';
-import {addPrevCategory,getTitleCategory} from 'src/actions/catalog';
+import {setPrevCategory,getTitleCategory} from 'src/actions/catalog';
 
 const mapStateToProps = ({app,catalog}) => {
   const {drawer} = app;
@@ -14,7 +14,7 @@ const mapStateToProps = ({app,catalog}) => {
 }
 const mapDispatchToProps = {
   getTitleCategory,
-  addPrevCategory,
+  setPrevCategory,
   toggleDrawer,
 }
 
