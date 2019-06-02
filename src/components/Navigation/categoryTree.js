@@ -1,38 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, {  Fragment } from 'react';
 import { func, number, objectOf, shape, string } from 'prop-types';
 
-import { Query, Link} from 'src/drivers';
+import {  Link} from 'src/drivers';
 import classify from 'src/classify';
-import { loadingIndicator } from 'src/components/LoadingIndicator';
-import Branch from './categoryBranch';
-import Leaf from './categoryLeaf';
+
 
 import defaultClasses from './categoryTree.css';
-import navigationMenu from '../../queries/getNavigationMenu.graphql';
+
 
 const Tree = (props) => {
   const urlSuffix = '.html';
-  return (
-    <Query query={navigationMenu} variables={{ id: 9}}>
-
-      {({ data, loading, error ,fetchMore }) => {
-
-        if (loading) return loadingIndicator;
-        if (error) return <div>Data Fetch Error</div>;
-          function fetch(id) {
-            fetchMore({
-              variables:{
-                id:  id
-              },
-              updateQuery:(prev,{fetchMoreResult,})=>{
-
-                if (!fetchMoreResult) return prev;
-                return fetchMoreResult
-              }
-            })
-          }
-
-          const children = data.category.children.sort((a, b) => {
+  const {data,fetch} = props
+  const children = data.category.children.sort((a, b) => {
             if (a.position > b.position) return 1;
             else if (a.position == b.position && a.id > b.id)
             return 1;
@@ -77,10 +56,8 @@ const Tree = (props) => {
               {leaves}
             </Fragment>
           )
-        }
-      }
-    </Query>
-  )
+
+
 }
 
 

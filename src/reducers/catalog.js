@@ -9,20 +9,47 @@ export const initialState = {
   rootCategoryId: null,
   currentPage: 1,
   pageSize: 2,
-  prevPageTotal: null
+  prevPageTotal: null,
+  prevCategory: [],
+  titleCategory:"Menú Principal"
 };
 
 const reducerMap = {
-
+  [actions.setPrevCategory.add] : (state, { payload, error }) => {
+    if (error) {
+      return state;
+    }
+  console.log("actions.setPrevCategory.add",payload,state)
+    return {
+      ...state,
+      prevCategory: [...state.prevCategory,payload]
+    };
+  },
+  [actions.setPrevCategory.remove] : (state, { payload, error }) => {
+    if (error) {
+      return state;
+    }
+     console.log("actions.setPrevCategory.remove",payload,state)
+    return {
+      ...state,
+      prevCategory: [...state.prevCategory.slice(1,state.prevCategory.length),...state.prevCategory.slice(state.prevCategory.length,1)]
+    };
+  },
+  [actions.setTitleCategory.modify] : (state, { payload, error }) => {
+    if (error) {
+      return state;
+    }
+    return {
+      ...state,
+      titleCategory: payload
+    };
+  },
   [actions.setCurrentPage.receive]: (state, { payload, error }) => {
     if (error) {
       return state;
     }
 
-    return {
-      ...state,
-      currentPage: payload
-    };
+
   },
   [actions.setPrevPageTotal.receive]: (state, { payload, error }) => {
     if (error) {

@@ -1,33 +1,44 @@
-import React,{Component} from 'react';
-import PropTypes from 'prop-types';
-import CategoryTree from './categoryTree';
+import React from 'react';
+import NavQuery from './navQuery'
+import {shape, string , bool, func} from 'prop-types';
+
 import Classify from 'src/classify'
 import defaultClasses from './navigation.css'
 
 
-class Navigation extends Component {
-  static propTypes = {
-    classes: PropTypes.shape({
-      openSideNav: PropTypes.string,
-      sideNav:PropTypes.string,
-    }),
-    drawer:PropTypes.bool,
-  }
-  render(){
-    const {classes,drawer,toggleDrawer} = this.props;
-    console.log(this.props)
+
+const Navigation = (props) => {
+  const {
+      classes,
+      drawer,
+      toggleDrawer,
+      addPrevCategory,
+      getTitleCategory,
+      prevCategory,
+      titleCategory
+    } = props
+
     const isOpenNav = drawer ? classes.openSideNav : classes.sideNav;
     return (
       <aside  className={isOpenNav}>
-        <ul className={classes.body}>
-          <CategoryTree
-            toggleDrawer={toggleDrawer}
-            drawer={drawer}
-            />
-        </ul>
+        <NavQuery
+          titleCategory={titleCategory}
+          prevCategory={prevCategory}
+          getTitleCategory={getTitleCategory}
+          addPrevCategory={addPrevCategory}
+          toggleDrawer={toggleDrawer}
+          drawer={drawer}
+          />
       </aside>
-
     )
-  }
+
+}
+Navigation.propTypes = {
+  classes: shape({
+    openSideNav: string,
+    sideNav:string,
+  }),
+  drawer:bool,
+  getTitleCategory:func.isRequired,
 }
 export default Classify(defaultClasses)(Navigation);
