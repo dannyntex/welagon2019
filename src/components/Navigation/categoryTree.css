@@ -1,4 +1,5 @@
 .root {
+
 }
 
 .tree {
@@ -8,9 +9,20 @@
 }
 
 .branch {
+  display: grid;
+  grid-template-columns: 1fr 100px  ;
+  grid-template-areas:"text img";
+  align-items:center;
+  height:79px;
+
+  background-color: #efefef;
+  margin: 8px 8px;
+}
+.branch em,.branch a{
+grid-area: text;
+padding-left: 0.9em
 }
 
 .inactive {
-    position: fixed;
-    visibility: hidden;
+
 }

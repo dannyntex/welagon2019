@@ -17,6 +17,7 @@ class NavHeader extends Component {
     //     onClose: func.isRequired
     // };
     handleActionsCat = (listCat,fetch) => {
+
       fetch(listCat[0],true)
    }
     render() {
@@ -25,20 +26,25 @@ class NavHeader extends Component {
 
         listPrevCat.sort((a, b)=>( a - b))
         const lastIdCat = listPrevCat.reverse();
-
+        console.log(listPrevCat)
         return (
             <Fragment>
-                <button
-                  onClick={()=> this.handleActionsCat(lastIdCat,fetch)}
-                  >
-                  <Icon src={ArrowLeftIcon} />
-                </button>
-                <h2
+              <div className={classes.root}>
+            {listPrevCat[0] ? (
+                  <button
+                    onClick={()=> this.handleActionsCat(lastIdCat,fetch)}
+                    >
+                    <Icon src={ArrowLeftIcon} />
+                  </button>
+                ): null}
+
+                <h5
                   key="title"
                   className={classes.title}
                   >
                     <span>{title}</span>
-                </h2>
+                </h5>
+              </div>
             </Fragment>
         );
     }

@@ -13,6 +13,7 @@ const NavQuery = (props) => {
         if (loading) return loadingIndicator;
         if (error) return <div>Data Fetch Error</div>;
           function fetch(id,isBack = false) {
+
             fetchMore({
               variables:{
                 id:  id
@@ -36,16 +37,13 @@ const NavQuery = (props) => {
 
           return (
             <Fragment>
-              <div>
                 <NavHeader
                   title={titleCategory}
                   listPrevCat={prevCategory}
                   setPrevCategory={setPrevCategory}
                   fetch={fetch}
                   />
-              </div>
-              <ul >
-                <CategoryTree
+                  <CategoryTree
                   getTitleCategory={getTitleCategory}
                   setPrevCategory={setPrevCategory}
                   toggleDrawer={toggleDrawer}
@@ -53,7 +51,6 @@ const NavQuery = (props) => {
                   data={data}
                   fetch={fetch}
                   />
-              </ul>
             </Fragment>
           )
         }

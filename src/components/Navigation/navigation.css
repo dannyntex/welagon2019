@@ -7,7 +7,7 @@
   right: 0;
   position: fixed;
   overflow-x: hidden;
-      transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
   transition-duration: 224ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 
@@ -22,11 +22,11 @@
   visibility: visible;
 }
 
-.sideNav a {
+/* .sideNav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
-}
+} */
