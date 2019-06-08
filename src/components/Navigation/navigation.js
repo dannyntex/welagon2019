@@ -1,6 +1,12 @@
 import React from 'react';
 import NavQuery from './navQuery'
-import {shape, string , bool, func,array} from 'prop-types';
+import {
+  shape,
+  string ,
+  bool,
+  func,
+  array,
+} from 'prop-types';
 
 import Classify from 'src/classify'
 import defaultClasses from './navigation.css'

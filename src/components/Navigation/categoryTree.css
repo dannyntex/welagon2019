@@ -2,11 +2,7 @@
 
 }
 
-.tree {
-}
 
-.leaf {
-}
 
 .branch {
   display: grid;
@@ -21,8 +17,4 @@
 .branch em,.branch a{
 grid-area: text;
 padding-left: 0.9em
-}
-
-.inactive {
-
 }
