@@ -2,7 +2,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
 import OnlineIndicator from 'src/components/OnlineIndicator';
-import Main from 'src/components/Main';
+import Main from 'src/pages/Main';
 import Mask from 'src/components/Mask';
 // import MiniCart from 'src/components/MiniCart';
 import ErrorNotifications from '../errorNotifications';
@@ -12,7 +12,7 @@ describe('Probamos los test',()=>{
     ).toBe(true)
   })
 })
-jest.mock('src/components/Main', () => 'Main');
+jest.mock('src/pages/Main', () => 'Main');
 // jest.mock('src/components/MiniCart', () => 'MiniCart');
 jest.mock('../errorNotifications', () => 'ErrorNotifications');
 

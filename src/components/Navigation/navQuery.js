@@ -19,10 +19,11 @@ const NavQuery = (props) => {
     setPrevCategory,
     prevCategory,
     titleCategory,
-    getTitleCategory
+    getTitleCategory,
+    rootId
   } = props;
   return (
-    <Query query={navigationMenu} variables={{ id: 9}}>
+    <Query query={navigationMenu} variables={{ id: rootId}}>
       {({ data, loading, error ,fetchMore }) => {
         if (loading) return loadingIndicator;
         if (error) return <div>Data Fetch Error</div>;

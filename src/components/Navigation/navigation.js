@@ -14,6 +14,7 @@ import defaultClasses from './navigation.css'
 
 
 const Navigation = (props) => {
+  const rootId = 9;
   const {
       classes,
       drawer,
@@ -34,6 +35,7 @@ const Navigation = (props) => {
           setPrevCategory={setPrevCategory}
           toggleDrawer={toggleDrawer}
           drawer={drawer}
+          rootId={rootId}
           />
       </aside>
     )
