@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types'
+import { Link } from 'src/drivers';
 
 import classify from 'src/classify';
 import defaultClasses from './header.css';
@@ -23,12 +24,14 @@ class Header extends Component {
     const { classes} = this.props;
     return (
       <header className={classes.top}>
+        <Link to='/'   className={classes.logo}>
         <img
-          className={classes.logo}
+          
           src={logo}
           width={this.props.size}
           alt="welagon"
           />
+      </Link>
       </header>
     )
   }
