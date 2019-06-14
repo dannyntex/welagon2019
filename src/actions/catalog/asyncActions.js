@@ -4,7 +4,6 @@ import actions from './actions';
 
 export const setPrevCategory = (payload,map) => async dispatch => {
     map === "add" ? (
-
       dispatch(actions.setPrevCategory.add(payload))
     ): (
       dispatch(actions.setPrevCategory.remove(payload))

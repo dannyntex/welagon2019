@@ -4,7 +4,9 @@ import mockData from '../mockData';
 import {
     getAllCategories,
     setCurrentPage,
-    setPrevPageTotal
+    setPrevPageTotal,
+    setPrevCategory,
+    getTitleCategory
 } from '../asyncActions';
 
 jest.mock('src/store');
@@ -14,7 +16,57 @@ const thunkArgs = [dispatch, getState];
 afterEach(() => {
     dispatch.mockClear();
 });
+describe('setPrevCategory',()=>{
+    const PAYLOAD = 9;
+      it('it returns a thunk', () => {
+          expect(setPrevCategory(PAYLOAD,"add")).toBeInstanceOf(Function);
+      });
+      it('its thunk returns undefined', async () => {
+          const result = await setPrevCategory(PAYLOAD)(...thunkArgs);
 
+          expect(result).toBeUndefined();
+      });
+      test('its thunk dispatches actions add', async () => {
+          await setPrevCategory(PAYLOAD,"add")(...thunkArgs);
+
+          expect(dispatch).toHaveBeenCalledTimes(1);
+          expect(dispatch).toHaveBeenNthCalledWith(
+              1,
+              actions.setPrevCategory.add(PAYLOAD)
+          );
+      });
+      test('its thunk dispatches actions remove', async () => {
+          await setPrevCategory(PAYLOAD)(...thunkArgs);
+
+          expect(dispatch).toHaveBeenCalledTimes(1);
+          expect(dispatch).toHaveBeenNthCalledWith(
+              1,
+              actions.setPrevCategory.remove(PAYLOAD)
+          );
+      });
+})
+
+describe('getTitleCategory',()=>{
+    const PAYLOAD = "Titulo";
+      it('it returns a thunk', () => {
+          expect(getTitleCategory(PAYLOAD)).toBeInstanceOf(Function);
+      });
+      it('its thunk returns undefined', async () => {
+          const result = await getTitleCategory(PAYLOAD)(...thunkArgs);
+
+          expect(result).toBeUndefined();
+      });
+
+      test('its thunk dispatches actions', async () => {
+          await getTitleCategory(PAYLOAD)(...thunkArgs);
+
+          expect(dispatch).toHaveBeenCalledTimes(1);
+          expect(dispatch).toHaveBeenNthCalledWith(
+              1,
+              actions.setTitleCategory.modify(PAYLOAD)
+          );
+      });
+})
 // describe('getAllCategories', () => {
 //     test('it returns a thunk', () => {
 //         expect(getAllCategories()).toBeInstanceOf(Function);

@@ -12,9 +12,9 @@ import LoadingIndicator from 'src/components/LoadingIndicator';
 
 const withRouterAndApolloClient = (mocks, renderFn) => (
   <MemoryRouter initialIndex={0} initialEntries={['/']}>
-  <MockedProvider mocks={mocks} addTypename={false}>
-  {renderFn()}
-  </MockedProvider>
+    <MockedProvider mocks={mocks} addTypename={false}>
+      {renderFn()}
+    </MockedProvider>
   </MemoryRouter>
 );
 
@@ -23,7 +23,7 @@ const props = {
   setPrevCategory : jest.fn(),
   toggleDrawer : jest.fn(),
   prevCategory: [],
-  rootId:9
+
 }
 
 
@@ -36,7 +36,7 @@ describe('NavQuery', ()=>{
 
     wrapper = renderer.create(
       withRouterAndApolloClient([],()=>(
-        <NavQuery {...props}/>
+        <NavQuery  {...props}/>
       ))
     );
     root = wrapper.root;
@@ -48,7 +48,7 @@ describe('NavQuery', ()=>{
 
 
 
-  it('shoul loading category',async ()=>{
+  it('should loading category with children_count',async ()=>{
     const mocks =[
       {
         request:{
@@ -151,9 +151,10 @@ describe('NavQuery', ()=>{
       },
 
     ]
+
     wrapper = renderer.create(
       withRouterAndApolloClient(mocks,()=>(
-        <NavQuery {...props}/>
+        <NavQuery rootId={9} {...props}/>
       ))
     );
     root = wrapper.root;
@@ -165,5 +166,73 @@ describe('NavQuery', ()=>{
       expect(items.children).toHaveLength(4);
     })
   });
+  describe('CategoryTree',()=>{
+    const mocks =[
+      {
+        request:{
+          query: getNavigationMenu,
+          variables:{
+            id: 4
+          },
+        },
+        result:{
+          data: {
+            "category": {
+              "id": 4,
+              "name": "Portátiles",
+              "product_count": 2,
+              "path": "1/9/4",
+              "children": [
+                {
+                  "id": 19,
+                  "name": "Portátiles segunda mano",
+                  "position": 1,
+                  "level": 3,
+                  "url_key": "portatiles-segunda-mano",
+                  "url_path": "portatiles/portatiles-segunda-mano",
+                  "product_count": 2,
+                  "children_count": "0",
+                  "path": "1/9/4/19",
+                  "include_in_menu": 1,
+                  "image": "img_0541_1_2_35.jpg"
+                }
+              ]
+            }
+          }
+        }
+      },
+    ];
+    beforeEach(()=>{
+      wrapper = renderer.create(
+        withRouterAndApolloClient(mocks,()=>(
+          <NavQuery rootId={4} {...props}/>
+        ))
+      );
+
+      root = wrapper.root;
+    })
+
+    it('should loading category without children_count',async ()=>{
+      await waitForExpect(() => {
+        const json = wrapper.toJSON();
+        const items = json.find (
+          (el) => el.type == "ul"
+        );
+        expect(items.children).toHaveLength(1);
+      })
+    });
+    it('should loading category with link',async ()=>{
+      await waitForExpect(() => {
+        const json = wrapper.toJSON();
+        const items = json.find (
+          (el) => el.type == "ul"
+          && el.children[0].children[0].type == "a"
+          && el.children[0].children[0].props.href == "/portatiles/portatiles-segunda-mano.html"
+        );
+
+        expect(items.children).toHaveLength(1);
+      })
+    });
+  })
 
 })
