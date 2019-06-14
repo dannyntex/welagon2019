@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow ,mount} from 'enzyme';
+import { shallow } from 'enzyme';
 
 import AppBarFooter from '../appbarfooter'
 
 const mockProps = {
-  drawer : '',
-  ToggleNav: jest.fn(),
+  drawer : false,
+  toggleDrawer: jest.fn(),
   classes:{
     root:'root',
     hamburger: 'hamburger',
@@ -20,7 +20,7 @@ describe('AppBarFooter', () =>{
     wrapper = shallow(
       <AppBarFooter  {...mockProps} onHandleToggleMenu={onHandleToggleMenu} />
     )
-    onHandleToggleMenu('nav',null)
+    onHandleToggleMenu()
   })
   it('should display icon menu',()=>{
     expect(
@@ -34,12 +34,12 @@ describe('AppBarFooter', () =>{
   })
   describe('then user clicks menu hamburger',()=>{
     beforeEach(()=>{
-      wrapper.setProps({ drawer: 'nav' });
+      wrapper.setProps({ drawer: true });
       const buttonLabel = wrapper.dive().find('label');
       buttonLabel.simulate('click');
     })
-    it('should call prop `onHandleToggleMenu` with `drawer`',()=>{
-      expect(
+    it('should call prop `onHandleToggleMenu` with `drawer`',()=>{    
+    expect(
         onHandleToggleMenu.mock.calls[0]
       )
     })

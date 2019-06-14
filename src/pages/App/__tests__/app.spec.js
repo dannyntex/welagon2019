@@ -57,7 +57,7 @@ afterAll(() => window.location.reload.mockRestore());
 test('renders a full page with onlineIndicator and routes', () => {
     const appProps = {
         app: {
-            drawer: '',
+            drawer: false,
             overlay: false,
             hasBeenOffline: true,
             isOnline: false
@@ -101,7 +101,7 @@ test('renders a full page with onlineIndicator and routes', () => {
 test('renders error fallback UI if error is in state', () => {
     const appProps = {
         app: {
-            drawer: '',
+            drawer: false,
             overlay: false,
             hasBeenOffline: true,
             isOnline: false
@@ -155,7 +155,7 @@ test('renders error fallback UI if error is in state', () => {
 test('displays onlineIndicator online if hasBeenOffline', () => {
     const appProps = {
         app: {
-            drawer: '',
+            drawer: false,
             overlay: false,
             hasBeenOffline: true,
             isOnline: true
@@ -174,7 +174,7 @@ test('displays onlineIndicator online if hasBeenOffline', () => {
 test('displays no onlineIndicator if online state never changed', () => {
     const appProps = {
         app: {
-            drawer: '',
+            drawer: false,
             overlay: false,
             hasBeenOffline: false,
             isOnline: false
@@ -203,14 +203,14 @@ describe('displays open nav or drawer', () => {
     });
 
     const { root: openNav } = TestRenderer.create(
-        <App {...propsWithDrawer('nav')} />
+        <App {...propsWithDrawer(true)} />
     );
 
     //getAndConfirmProps(openNav, Navigation, { isOpen: true });
 
-    const { root: openCart } = TestRenderer.create(
-        <App {...propsWithDrawer('cart')} />
-    );
+    // const { root: openCart } = TestRenderer.create(
+    //     <App {...propsWithDrawer('cart')} />
+    // );
 
     // getAndConfirmProps(openCart, MiniCart, { isOpen: true });
 });

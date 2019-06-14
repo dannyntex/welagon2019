@@ -29,22 +29,22 @@ test('toggleDrawer thunk dispatches actions', async () => {
     expect(dispatch).toHaveBeenCalledTimes(1);
 });
 
-test('closeDrawer() to return a thunk ', () => {
-    expect(closeDrawer()).toBeInstanceOf(Function);
-});
+// test('closeDrawer() to return a thunk ', () => {
+//     expect(closeDrawer()).toBeInstanceOf(Function);
+// });
 
-test('closeDrawer thunk returns undefined', async () => {
-    const result = await closeDrawer()(...thunkArgs);
-
-    expect(result).toBeUndefined();
-});
-
-test('closeDrawer thunk dispatches actions', async () => {
-    await closeDrawer()(...thunkArgs);
-
-    expect(dispatch).toHaveBeenCalledWith(actions.toggleDrawer(null));
-    expect(dispatch).toHaveBeenCalledTimes(1);
-});
+// test('closeDrawer thunk returns undefined', async () => {
+//     const result = await closeDrawer()(...thunkArgs);
+//
+//     expect(result).toBeUndefined();
+// });
+//
+// test('closeDrawer thunk dispatches actions', async () => {
+//     await closeDrawer()(...thunkArgs);
+//
+//     expect(dispatch).toHaveBeenCalledWith(actions.toggleDrawer(null));
+//     expect(dispatch).toHaveBeenCalledTimes(1);
+// });
 
 test('toggleSearch() to return a thunk ', () => {
     expect(toggleSearch()).toBeInstanceOf(Function);
