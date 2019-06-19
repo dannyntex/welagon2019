@@ -3,6 +3,7 @@ export { Link, Redirect, Route } from 'react-router-dom';
 export { default as resourceUrl } from '../util/makeUrl';
 export { default as Adapter } from './adapter';
 export { connect } from 'react-redux';
+export { default as getPathName } from '../util/getPathName';
 
 /**
  * Venia components must be portable and consumable by projects which want to

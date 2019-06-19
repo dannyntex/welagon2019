@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { func, shape, string } from 'prop-types';
 import { ApolloClient } from 'apollo-client';
 import { persistCache } from 'apollo-cache-persist';
+import { ApolloContext } from 'react-apollo/ApolloContext';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache,defaultDataIdFromObject } from 'apollo-cache-inmemory';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Router } from '@magento/peregrine';
 
@@ -49,7 +50,18 @@ export default class Welagon extends Component {
         });
     }
     static apolloCache() {
-        const cache = new InMemoryCache();
+        const cache = new InMemoryCache(
+          {
+  dataIdFromObject: object => {
+
+    const identifier = object.identifier;
+    switch (object.__typename) {
+      case 'CmsBlock': return `CmsBlock:${identifier}`;
+      default: return defaultDataIdFromObject(object);
+    }
+  }
+}
+);
 
         persistCache({
             cache,
@@ -75,11 +87,13 @@ export default class Welagon extends Component {
     render() {
         const { children, store, apiBase } = this.props;
         return (
+          <ApolloContext.Provider value={this.apolloClient}>
             <ApolloProvider client={this.apolloClient}>
                 <ReduxProvider store={store}>
                     <Router apiBase={apiBase}>{children}</Router>
                 </ReduxProvider>
             </ApolloProvider>
+          </ApolloContext.Provider>
         );
     }
 }

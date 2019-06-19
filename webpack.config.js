@@ -1,6 +1,5 @@
 const validEnv = require('./validate-environment')(process.env);
 
-
 const webpack = require('webpack');
 const {
     WebpackTools: {
@@ -25,7 +24,11 @@ const themePaths = {
 
 const rootComponentsDirs = ['./src/RootComponents/'];
 const libs = [
-    'apollo-boost',
+    'apollo-cache-inmemory',
+    'apollo-cache-persist',
+    'apollo-client',
+    'apollo-link-context',
+    'apollo-link-http',
     'informed',
     'react',
     'react-apollo',
@@ -41,7 +44,8 @@ const libs = [
 module.exports = async function(env) {
     const mode = (env && env.mode) || process.env.NODE_ENV || 'development';
 
-    const enableServiceWorkerDebugging = false;
+    const enableServiceWorkerDebugging =
+        validEnv.ENABLE_SERVICE_WORKER_DEBUGGING;
 
     const serviceWorkerFileName = validEnv.SERVICE_WORKER_FILE_NAME;
     const braintreeToken = validEnv.BRAINTREE_TOKEN;
@@ -72,8 +76,7 @@ module.exports = async function(env) {
                 },
                 {
                     include: [themePaths.src, /peregrine\/src\//],
-
-                    test: /\.(mjs|js|jsx)$/,
+                    test: /\.(mjs|js)$/,
                     use: [
                         {
                             loader: 'babel-loader',
@@ -82,7 +85,7 @@ module.exports = async function(env) {
                                 envName: mode,
                                 rootMode: 'upward'
                             }
-                        },
+                        }
                     ]
                 },
                 {
@@ -94,7 +97,7 @@ module.exports = async function(env) {
                             options: {
                                 importLoaders: 1,
                                 localIdentName:
-                                  '[name]-[local]-[hash:base64:3]',
+                                    '[name]-[local]-[hash:base64:3]',
                                 modules: true
                             }
                         }
@@ -116,9 +119,6 @@ module.exports = async function(env) {
                 root: __dirname
             }
         }),
-          // @description webpack plugin que crea trozos para cada uno
-          // RootComponent individual en una matriz proporcionada de directorios, y produce un
-          // archivo que importa cada uno como un trozo separado.
         plugins: [
             await makeMagentoRootComponentsPlugin({
                 rootComponentsDirs,
@@ -251,4 +251,4 @@ module.exports = async function(env) {
         throw Error(`Unsupported environment mode in webpack config: ${mode}`);
     }
     return config;
-  }
+};

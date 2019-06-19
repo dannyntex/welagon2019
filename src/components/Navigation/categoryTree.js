@@ -7,7 +7,7 @@ import {
   bool
 } from 'prop-types';
 
-import { Link } from 'src/drivers';
+import { Link ,resourceUrl} from 'src/drivers';
 import classify from 'src/classify';
 import defaultClasses from './categoryTree.css';
 
@@ -34,17 +34,20 @@ const Tree = (props) => {
     }
     const { children_count } = node;
     const isLeaf = children_count == 0;
+
     if(isLeaf){
       return (
         <li className={classes.branch}
           key={node.id}
           onClick={handleToggleMenu}>
+
           <Link to={`/${node.url_path}${urlSuffix}`}>
             {node.name}
           </Link>
         </li>
       )
     }
+
     return  (
       <li className={classes.branch}
         key={node.id}
