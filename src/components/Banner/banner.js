@@ -27,12 +27,17 @@ const Banner = (props) => {
             if (!Array.isArray(items) || !items.length) {
               return <div>There are no blocks to display</div>;
               }
+            
             const content = items[0].content;
             const src = content.match(/src=(".*?")/);
-            const href = content.match(/href=(".*?")/)
             if(!src){
-                return <div>There is no image</div>
+                return <div>There is no image in the block {items[0].identifier}</div>
               }
+            const href = content.match(/href=(".*?")/)
+            const altQuotes = content.match(/alt=(".*?")/)
+            const alt = altQuotes[1].replace(/["]+/g,"")
+
+
             const blockImg = src[1].match('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))');
             const linkImg = href[1].match('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))');
             const urlimg = resourceUrl(blockImg[1],{
@@ -43,6 +48,7 @@ const Banner = (props) => {
               <section>
                 <Link to={urllink}>
                   <img
+                      alt={alt}
                       src={urlimg}
                       className={classes.banner}
                     />
