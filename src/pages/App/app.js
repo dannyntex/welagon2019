@@ -86,10 +86,12 @@ class App extends Component {
     const { onlineIndicator } = this;
     const { drawer, overlay } = app;
     const cartIsOpen = drawer === 'cart';
-
+    const id = {
+      id: 9
+    }
     return (
       <Fragment>
-        <Main isMasked={overlay}>
+        <Main isMasked={overlay} rootId={id}>
             {onlineIndicator}
             {renderRoutes()}
         </Main>

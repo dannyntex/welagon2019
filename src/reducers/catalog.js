@@ -11,7 +11,8 @@ export const initialState = {
   pageSize: 2,
   prevPageTotal: null,
   prevCategory: [],
-  titleCategory:"Menú Principal"
+  titleCategory:"Menú Principal",
+  rootId:9
 };
 
 const reducerMap = {

@@ -14,7 +14,7 @@ class Main extends Component {
         <Footer/>
         <RenderPageBySize>
           <AppBarFooter/>
-          <Navigation/>
+          <Navigation />
         </RenderPageBySize>
       </main>
     )

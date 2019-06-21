@@ -5,11 +5,12 @@ import {setPrevCategory,getTitleCategory} from 'src/actions/catalog';
 
 const mapStateToProps = ({app,catalog}) => {
   const {drawer} = app;
-  const {prevCategory,titleCategory} = catalog;
+  const {prevCategory,titleCategory,rootId} = catalog;
   return {
         titleCategory,
         prevCategory,
-        drawer
+        drawer,
+        rootId
       }
 }
 const mapDispatchToProps = {

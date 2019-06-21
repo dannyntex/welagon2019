@@ -32,3 +32,7 @@
   color: #d61e26!important;
   background: #0c0c0c!important;
 }
+.fetchError {
+    background-color: var(--welagon-red);
+    color: var(--welagon-text)
+}

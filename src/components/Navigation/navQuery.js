@@ -26,7 +26,7 @@ const NavQuery = (props) => {
     <Query query={navigationMenu} variables={{ id: rootId}}>
       {({ data, loading, error ,fetchMore }) => {
         if (loading) return loadingIndicator;
-        if (error) return <div>Data Fetch Error</div>;
+        if (error) return <div>Data Fetch <pre>{error.message}</pre></div>;
           function fetch(id,isBack = false) {
             fetchMore({
               variables:{

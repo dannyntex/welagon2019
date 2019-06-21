@@ -4,7 +4,8 @@ import {
   resourceUrl,
   Link,
   getPathName
-} from 'src/drivers'
+} from 'src/drivers';
+import { shape,string } from 'prop-types';
 
 import getCmsBlocks from '../../queries/getCmsBlocks.graphql';
 import { loadingIndicator } from 'src/components/LoadingIndicator';
@@ -20,14 +21,14 @@ const Banner = (props) => {
         variables={{identifiers:'banner_homepage_movil'}}
         fetchPolicy="cache-and-network"
         >
-        {({ data, loading, error ,client }) => {
+        {({ data, loading, error  }) => {
           if (loading) return loadingIndicator;
-          if (error) return <div>Data Fetch Error</div>;
+          if (error) return <div>Data Fetch <pre>{error.message}</pre></div>;
             const {items} = data.cmsBlocks;
             if (!Array.isArray(items) || !items.length) {
               return <div>There are no blocks to display</div>;
               }
-            
+
             const content = items[0].content;
             const src = content.match(/src=(".*?")/);
             if(!src){
@@ -36,8 +37,6 @@ const Banner = (props) => {
             const href = content.match(/href=(".*?")/)
             const altQuotes = content.match(/alt=(".*?")/)
             const alt = altQuotes[1].replace(/["]+/g,"")
-
-
             const blockImg = src[1].match('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))');
             const linkImg = href[1].match('((?:http|https)(?::\\/{2}[\\w]+)(?:[\\/|\\.]?)(?:[^\\s"]*))');
             const urlimg = resourceUrl(blockImg[1],{
@@ -60,5 +59,10 @@ const Banner = (props) => {
     </Query>
     )
   }
+  Banner.propTypes = {
+    classes: shape({
+      banner: string
+    })
+  };
 
 export default Classify(defaultClasses)(Banner);

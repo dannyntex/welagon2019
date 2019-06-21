@@ -1,1 +1,1 @@
-export {default} from './CatHomepage'
+export {default} from './container'

@@ -14,7 +14,7 @@ import defaultClasses from './navigation.css'
 
 
 const Navigation = (props) => {
-  const rootId = 9;
+
   const {
       classes,
       drawer,
@@ -22,7 +22,8 @@ const Navigation = (props) => {
       setPrevCategory,
       getTitleCategory,
       prevCategory,
-      titleCategory
+      titleCategory,
+      rootId
     } = props
 
     const isOpenNav = drawer ? classes.openSideNav : classes.sideNav;
