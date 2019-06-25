@@ -2,7 +2,6 @@ import React, { Component,Fragment} from 'react';
 
 import Banner from 'src/components/Banner';
 import CatHomepage from 'src/components/CatHomepage';
-import CategoryList from 'src/components/CategoryList';
 import FeaturedProducts from 'src/components/FeaturedProducts';
 import Brands from 'src/components/Brands';
 
@@ -13,7 +12,6 @@ export default class CMS extends Component {
       <Fragment>
         <Banner/>
         <CatHomepage/>
-
         <FeaturedProducts/>
         <Brands/>
       </Fragment>

@@ -5,6 +5,7 @@ import categoryListQuery from '../../queries/getCategoryList.graphql';
 import classify from 'src/classify'
 import defaultClasses from './cathomepage.css';
 import noImage from 'src/shared/no-image.jpg'
+import { loadingIndicator } from 'src/components/LoadingIndicator';
 
 const imagePatch =(image) => {
   if (image) {

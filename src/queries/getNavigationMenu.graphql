@@ -1,5 +1,5 @@
 query navigationMenu($id: Int!) {
-  category(id: $id) {
+  category(id: $id) @connection(key: "category", filter: ["type"]){
     id
     name
     product_count

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { func, shape, string } from 'prop-types';
 import { ApolloClient } from 'apollo-client';
 import { persistCache } from 'apollo-cache-persist';
+
 import { ApolloContext } from 'react-apollo/ApolloContext';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
@@ -50,30 +51,42 @@ export default class Welagon extends Component {
         });
     }
     static apolloCache() {
-        const cache = new InMemoryCache(
-          {
-  dataIdFromObject: object => {
-
-    const identifier = object.identifier;
-    switch (object.__typename) {
-      case 'CmsBlock': return `CmsBlock:${identifier}`;
-      default: return defaultDataIdFromObject(object);
-    }
-  }
-}
-);
-
-        persistCache({
-            cache,
-            storage: window.localStorage
+      const cache = new InMemoryCache({
+          dataIdFromObject: (object) => {
+            const identifier = object.identifier;
+            switch (object.__typename) {
+              case 'CmsBlock': return `CmsBlock:${identifier}`;
+              default: return defaultDataIdFromObject(object);
+            }
+          },
+          // cacheRedirects: {
+          //   Query: {
+          //  category: (_, { id },{getCacheKey}) => {
+          //    console.log(id)
+          //    console.log(getCacheKey({ __typename: 'CategoryTree', id }))
+          //    return getCacheKey({ __typename: 'CategoryTree', id })
+          //  }
+          //    ,
+          // //     category: (_, {id}, { getCacheKey }) =>{
+          // //       console.log(id)
+          // //     return getCacheKey({ __typename: 'CategoryTree', id: id })
+          // //     }
+          // //
+          //   },
+          // },
         });
+      //configurar persistCache para que este la cache almacenado por defecto.
+      persistCache({
+        cache,
+        storage: window.localStorage
+      });
 
-        return cache;
+      return cache;
     }
-    static apolloClient({ apiBase, apollo: { cache, link } = {} }) {
+    static apolloClient({ apiBase }) {
         return new ApolloClient({
-            cache: cache || Welagon.apolloCache(),
-            link: link || Welagon.apolloLink(apiBase),
+            cache:  Welagon.apolloCache(),
+            link:  Welagon.apolloLink(apiBase),
 
         });
     }

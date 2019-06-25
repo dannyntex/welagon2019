@@ -13,16 +13,25 @@ import defaultClasses from './categoryTree.css';
 
 const Tree = (props) => {
   const urlSuffix = '.html';
-  const {data, fetch, drawer, toggleDrawer,classes} = props
+  const {
+    data,
+    fetch,
+    drawer,
+    toggleDrawer,
+    classes
+  } = props;
+
   const children = data.category.children.sort((a, b) => {
     if (a.position > b.position) return 1;
     else if (a.position == b.position && a.id > b.id)
     return 1;
     else return -1;
   });
+
   const handleToggleMenu = () => {
     !drawer ? toggleDrawer(true) : toggleDrawer(false)
-  }
+  };
+
   const leaves = children.map(node => {
     if (node.include_in_menu === 0 || node.level === 1 ) {
       for (const nod in node){
@@ -31,7 +40,8 @@ const Tree = (props) => {
         }
         return null;
       }
-    }
+    };
+    
     const { children_count } = node;
     const isLeaf = children_count == 0;
 
