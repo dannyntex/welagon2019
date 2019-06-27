@@ -7,7 +7,7 @@ import {
   bool
 } from 'prop-types';
 
-import { Link ,resourceUrl} from 'src/drivers';
+import { Link } from 'src/drivers';
 import classify from 'src/classify';
 import defaultClasses from './categoryTree.css';
 
@@ -41,7 +41,7 @@ const Tree = (props) => {
         return null;
       }
     };
-    
+
     const { children_count } = node;
     const isLeaf = children_count == 0;
 

@@ -7,18 +7,9 @@ query categoryList($id: Int!) {
             name
             url_key
             url_path
-            children_count
-            path
             image
             include_in_menu
-            level
-            productImagePreview: products(pageSize: 1) {
-                items {
-                    small_image {
-                        url
-                    }
-                }
-            }
+
         }
     }
 }

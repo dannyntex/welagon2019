@@ -1,5 +1,9 @@
 import React from 'react';
-import { Query,resourceUrl } from 'src/drivers';
+import {
+  Query,
+  resourceUrl,
+  Link
+} from 'src/drivers';
 
 import categoryListQuery from '../../queries/getCategoryList.graphql';
 import classify from 'src/classify'
@@ -40,11 +44,12 @@ const CatHomepage = (props) => {
           </div>
         );
       }
+      const urlSuffix = '.html';
       const items = data.category.children.map((item,index)=> {
         if (item.include_in_menu === 1) {
           return (
             <div key={index} className={classes.container}>
-              <a className={classes.imageBack} style={{backgroundImage: `url(${imagePatch(item.image)})`}}>{item.name}</a>
+              <Link to={`/${item.url_path}${urlSuffix}`} className={classes.imageBack} style={{backgroundImage: `url(${imagePatch(item.image)})`}}>{item.name}</Link>
             </div>
           )
         }
