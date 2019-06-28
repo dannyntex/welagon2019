@@ -1,8 +1,9 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from 'react-apollo/test-utils';
 import waitForExpect from 'wait-for-expect';
 import renderer from 'react-test-renderer';
-import { MemoryRouter } from 'react-router-dom';
+
 
 import NavQuery from '../navQuery';
 import getNavigationMenu from '../../../queries/getNavigationMenu.graphql';
