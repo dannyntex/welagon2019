@@ -90,14 +90,33 @@ module.exports = async function(env) {
                 },
                 {
                     test: /\.css$/,
+                    exclude: [/react\-multi\-carousel\//],
                     use: [
                         'style-loader',
                         {
                             loader: 'css-loader',
+
                             options: {
                                 importLoaders: 1,
                                 localIdentName:
                                     '[name]-[local]-[hash:base64:3]',
+                                modules: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.css$/,
+                    include: [/react\-multi\-carousel\//],
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+
+                            options: {
+                                importLoaders: 1,
+                                localIdentName:
+                                    '[local]',
                                 modules: true
                             }
                         }
@@ -109,6 +128,18 @@ module.exports = async function(env) {
                         {
                             loader: 'file-loader',
                             options: {}
+                        }
+                    ]
+                },
+                {
+                    test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                              name: '[name].[ext]',
+                              outputPath: 'fonts/'
+                            }
                         }
                     ]
                 }

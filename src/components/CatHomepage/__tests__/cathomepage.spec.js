@@ -6,7 +6,7 @@ import renderer from 'react-test-renderer';
 
 import CatHomepage from '../catHomepage'
 import categoryList from '../../../queries/getCategoryList.graphql';
-import LoadingIndicator from 'src/components/LoadingIndicator';
+import loadingIndicator from 'src/components/LoadingIndicator';
 
 
 const withRouterAndApolloClient = (mocks, renderFn) => (
@@ -37,7 +37,7 @@ describe('CatHomepage', ()=>{
     );
     root = wrapper.root;
 
-    expect(root.findByType(LoadingIndicator)).toBeTruthy();
+    expect(root.findByType(loadingIndicator)).toBeTruthy();
 
   });
   const mocks = [

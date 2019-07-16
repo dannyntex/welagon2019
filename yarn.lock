@@ -8628,7 +8628,7 @@ jest-snapshot@^24.8.0:
     pretty-format "^24.8.0"
     semver "^5.5.0"
 
-jest-transform-graphql@^2.1.0:
+jest-transform-graphql@~2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/jest-transform-graphql/-/jest-transform-graphql-2.1.0.tgz#903cb66bb27bc2772fd3e5dd4f7e9b57230f5829"
   integrity sha1-kDy2a7J7wncv0+XdT36bVyMPWCk=
@@ -8684,7 +8684,7 @@ jest-worker@^24.6.0:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
-jest@^24.8.0:
+jest@~24.8.0:
   version "24.8.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-24.8.0.tgz#d5dff1984d0d1002196e9b7f12f75af1b2809081"
   integrity sha512-o0HM90RKFRNWmAWvlyV8i5jGZ97pFwkeVoGvPW1EtLTgJc2+jcuqcbbqcSZLE/3f2S5pt0y2ZBETuhpWNl1Reg==
@@ -11381,6 +11381,11 @@ react-modal@^3.8.1:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
+
+react-multi-carousel@^1.4.6:
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-1.4.6.tgz#f6d9851e73e5db7bd3a3ebbd2c6f41cbc4748c7a"
+  integrity sha512-M/1zRq07i9FhDYvH9qHwnu8T8hgz0TzL6kLS/5J+yFOARkSMsb+K42bSHmzVwiPyY03DUKuOsW5AXMMRnzt5LA==
 
 react-popper-tooltip@^2.8.0:
   version "2.8.2"
