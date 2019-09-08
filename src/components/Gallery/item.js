@@ -54,7 +54,6 @@ class GalleryItem extends Component {
 
     render() {
         const { classes, item } = this.props;
-
         if (!item) {
             return (
                 <ItemPlaceholder classes={classes}>
@@ -63,7 +62,7 @@ class GalleryItem extends Component {
             );
         }
 
-        const { name, price, url_key } = item;
+        const { name, price, url_key,sku } = item;
         const productLink = `/${url_key}${productUrlSuffix}`;
 
         return (
@@ -80,6 +79,7 @@ class GalleryItem extends Component {
                         value={price.regularPrice.amount.value}
                         currencyCode={price.regularPrice.amount.currency}
                     />
+                  <p>{sku}</p>
                 </div>
             </div>
         );
@@ -114,11 +114,12 @@ class GalleryItem extends Component {
             return null;
         }
 
-        const { small_image, name } = item;
+        const { small_image, name,image } = item;
+        console.log(image,small_image)
         return (
             <img
                 className={classes.image}
-                src={resourceUrl(small_image, {
+                src={resourceUrl(image.url, {
                     type: 'image-product',
                     width: imageWidth
                 })}

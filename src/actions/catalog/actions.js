@@ -23,6 +23,10 @@ const actionMap = {
     SET_TITLE_CATEGORY:{
       MODIFY: null
 
+    },
+    SET_ITEMS_CATEGORY:{
+      ADDFIRT:null,
+      ADDNEXT:null,
     }
 };
 

@@ -7,12 +7,13 @@ export const name = 'catalog';
 export const initialState = {
   categories: null,
   rootCategoryId: null,
-  currentPage: 1,
-  pageSize: 2,
+  currentPage: 4,
+  pageSize:2,
   prevPageTotal: null,
   prevCategory: [],
   titleCategory:"Menú Principal",
-  rootId:9
+  rootId:9,
+  items:[]
 };
 
 const reducerMap = {
@@ -47,7 +48,10 @@ const reducerMap = {
     if (error) {
       return state;
     }
-
+    return {
+      ...state,
+      currentPage: payload
+    }
 
   },
   [actions.setPrevPageTotal.receive]: (state, { payload, error }) => {
@@ -59,7 +63,19 @@ const reducerMap = {
       ...state,
       prevPageTotal: payload
     };
-  }
+  },
+  [actions.setItemsCategory.addfirt]: (initialState, {payload, error}) =>{
+    if(error ) {
+      return initialState;
+    }
+      console.log("payload",payload)
+      return {
+        ...initialState
+        // items: initialState.items.concat(payload)
+      }
+    }
+
+
 };
 
 export default handleActions(reducerMap, initialState);

@@ -39,3 +39,7 @@ export const setPrevPageTotal = payload =>
     async function thunk(dispatch) {
         dispatch(actions.setPrevPageTotal.receive(payload));
     };
+export const setItemsCategory = payload =>
+  async function thunk(dispatch){
+    dispatch(actions.setItemsCategory.addfirt(payload))
+}

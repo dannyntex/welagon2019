@@ -3,12 +3,14 @@ import {
   Link,
   resourceUrl,
   Query} from 'src/drivers';
+import { string, number, shape } from 'prop-types';
 import classify from 'src/classify'
 import productDetailByCategoryLastUpdate from 'src/queries/getProductDetailByCategoryLastUpdate.graphql';
 import { loadingIndicator } from 'src/components/LoadingIndicator';
 import defaultClasses from './productQueries.css';
 import CarouselComponent from './carousel'
 import noImage from 'src/shared/no-image.jpg'
+
 const imagePatch =(image) => {
 
   if (image) {
